@@ -72,19 +72,15 @@ confused <- trainOrdered[trainOrdered$historicalOutcome != 0 &trainOrdered$histo
 ggplot(confused, aes(x =historicalOutcome)) + geom_density(aes(color=outcome))
 ggplot(confused, aes(x =diffDate)) + geom_density(aes(color=outcome))
 ggplot(confused, aes(x =historicalOutcome, y = diffDate)) + geom_point(aes(color=outcome))
-
-summary(trainOrdered)
-
 ggplot(confused, aes(x =char_2.y)) + geom_bar(aes(color=outcome,fill=outcome))
 
-confused %>% subset(select = c(outcome,historicalOutcome,char_38)) %>% summary()
+
+##split train cross set
+trainOrdered[trainOrdered$people_id == "ppl_100025",] %>% head
 
 
 
-
-
-
-
+test[test$people_id %in% trainOrdered$per]
 
 
 
